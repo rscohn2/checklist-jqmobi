@@ -1,0 +1,3 @@
+[submodule "libs/jqmobi"]
+	path = libs/jqmobi
+	url = git@github.com:rscohn2/jQ.Mobi.git
