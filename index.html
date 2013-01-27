@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--HTML5 doctype-->
 <html>
 <head>
@@ -20,9 +20,12 @@
     </style>
     <link rel='stylesheet' type='text/css' href='css/jq.ui.frosty.css' />
     <link rel="stylesheet" type="text/css" href="css/icons.css">
+    
+    <script src="http://debug.appmobi.com/target/target-script-min.js#9bffbff5-6f48-42f0-8698-311ade090980"></script>
     <script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/appmobi.js"></script>
     <script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/xhr.js"></script>
-    <script type="text/javascript" charset="utf-8" src="libs/jq.ui.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="libs/jq.mobi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="libs/jq.ui.js"></script>
     <script type="text/javascript" charset="utf-8" src="libs/jq.web.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="libs/xpromo.js"></script>
     <script type="text/javascript">
@@ -63,7 +66,7 @@
             <div id='taskPage' title='Tasks' selected="true" class='panel'>
                 <header>
                     <h1>Tasks</h1>
-                    <a href='#taskFormPage' class='button icon add' style='float:right'>New</a>
+                    <a id='newTaskButton' href='#taskFormPage' class='button icon add' style='float:right'>New</a>
                 </header>
                 <ul id='tasklist'>
                 </ul>
@@ -71,56 +74,52 @@
             <div id='taskFormPage' title='Edit Task' class='panel'>
                 <header>
                     <h1>Edit Task</h1>
-                    <a href='#taskPage' class='button'>Cancel</a>
-                    <a href='#taskPage' class='button' style="float:right;">Save</a>
+                    <a id='cancelTaskButton' href='#taskPage' class='button'>Cancel</a>
+                    <a id='saveTaskButton' href='#taskPage' class='button' style="float:right;">Save</a>
                 </header>
-                <ul>
-                    <li>
+                    <div>
                         <label for='taskName'>
                             Name
                         </label>
                         <input type='text' name='taskName' id='taskName' class='jq-ui-forms' placeholder='Name' />
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <label for='taskDescription'>
                             Description
                         </label>
                         <textarea cols="40" rows="8" name='taskDescription' id='taskDescription' class='jq-ui-forms'
                             placeholder='Description'></textarea>
-                    </li>
-                </ul>
+                    </div>
+
             </div>
             <div id='checklistPage' title='Checklists' class='panel' scrolling='yes'>
                 <header>
                     <h1>Checklists</h1>
-                    <a href='#checklistFormPage' class='button icon add' style='float:right'>New</a>
+                    <a id='newChecklistButton' href='#checklistFormPage' class='button icon add' style='float:right'>New</a>
                 </header>
-                <ul>
-                    <li><a href='#main'>Link 1</a></li>
-                    <li><a href='#main'>Link2</a></li>
+                <ul id='checklist'>
+
                 </ul>
             </div>
             <div id='checklistFormPage' title='Edit Checklist' class='panel'>
                 <header>
                     <h1>Edit Checklist</h1>
-                    <a href='#checklistPage' class='button'>Cancel</a>
-                    <a href='#checklistPage' class='button' style="float:right;">Save</a>
+                    <a id='cancelChecklistButton' href='#checklistPage' class='button'>Cancel</a>
+                    <a id='saveChecklistButton' href='#checklistPage' class='button' style="float:right;">Save</a>
                 </header>
-                <ul>
-                    <li>
+                <div>
                         <label for='checklistName'>
                             Name
                         </label>
                         <input type='text' name='checklistName' id='checklistName' class='jq-ui-forms' placeholder='Name' />
-                    </li>
-                    <li>
+                </div>
+                <div>
                         <label for='checklistDescription'>
                             Description
                         </label>
                         <textarea cols="40" rows="8" name='checklistDescription' id='checklistDescription'
                             class='jq-ui-forms' placeholder='Description'></textarea>
-                    </li>
-                </ul>
+                </div>
             </div>
             <div id='settingsPage' title='Settings' class='panel' scrolling='yes'>
                 You can add whatever content you like

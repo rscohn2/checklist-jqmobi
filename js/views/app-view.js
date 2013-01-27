@@ -12,12 +12,48 @@ $( function() {'use strict';
 	// Our overall **AppView** is the top-level piece of UI.
 	app.AppView = Backbone.View.extend({
 
-		el : '#app',
+		el : 'body',
 
 		// Delegated events for creating new items, and clearing completed ones.
 		events : {
+        	'tap #newTaskButton' : 'newTask',
+            'tap #saveTaskButton' : 'saveTask',
+			'tap #cancelTaskButton' : 'cancelTask',
+            'tap #newChecklistButton' : 'newChecklist',
+            'tap #saveChecklistButton' : 'saveChecklist',
+			'tap #cancelChecklistButton' : 'cancelChecklist',
 		},
 
+        newTask : function() {
+            console.log('New task from appview');
+            app.taskPage.view.newTask();
+        },
+        
+        saveTask : function() {
+            console.log('Save task from appview');
+            app.taskFormPage.view.saveTask();
+        },
+        
+        cancelTask : function() {
+            console.log('Cancel task from appview');
+            app.taskFormPage.view.cancelTask();
+        },
+        
+        newChecklist : function() {
+            console.log('New checklist from appview');
+            app.checklistPage.view.newChecklist();
+        },
+        
+        saveChecklist : function() {
+            console.log('Save checklist from appview');
+            app.checklistFormPage.view.saveChecklist();
+        },
+        
+        cancelChecklist : function() {
+            console.log('Cancel checklist from appview');
+            app.checklistFormPage.view.cancelChecklist();
+        },
+        
 		initialize : function() {
 			// Create the views
 			app.taskPage.view = new app.taskPage.View();
@@ -61,7 +97,8 @@ $( function() {'use strict';
 		refresh : function(object, constructor) {
 			// Widgets cannot/don't need to be refreshed until the page has been inited
 			if (this.pageInit) {
-				constructor.call(object, 'refresh');
+                // not use jqm
+				//constructor.call(object, 'refresh');
 			}
 		},
 	});
@@ -74,7 +111,6 @@ $( function() {'use strict';
 
 		// Delegated events for creating new items, and clearing completed ones.
 		events : {
-			'tap #newTaskButton' : 'newTask',
 			'pageinit' : 'onPageInit',
 			'change #taskChecklistSelect' : 'filterChecklist'
 		},
@@ -106,6 +142,7 @@ $( function() {'use strict';
 		},
 
 		newTask : function() {
+            console.log('New task');
 			app.taskFormPage.view.populateForm({
 				name : '',
 				description : '',
@@ -127,8 +164,7 @@ $( function() {'use strict';
 
 		// Delegated events for creating new items, and clearing completed ones.
 		events : {
-			'tap #saveTaskButton' : 'saveTask',
-			'tap #cancelTaskButton' : 'cancelTask',
+
 			'change #taskDone' : 'doneChanged',
 			'tap #deleteTaskButton' : 'deleteTask',
 			'pageinit' : 'onPageInit'
@@ -219,7 +255,6 @@ $( function() {'use strict';
 
 		// Delegated events for creating new items, and clearing completed ones.
 		events : {
-			'tap #newChecklistButton' : 'newChecklist',
 			'pageinit' : 'onPageInit'
 		},
 
@@ -246,8 +281,6 @@ $( function() {'use strict';
 
 		// Delegated events for creating new items, and clearing completed ones.
 		events : {
-			'tap #saveChecklistButton' : 'saveChecklist',
-			'tap #cancelChecklistButton' : 'cancelChecklist',
 			'tap #deleteChecklistButton' : 'deleteChecklist',
 			'pageinit' : 'onPageInit'
 		},
