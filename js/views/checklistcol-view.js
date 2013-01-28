@@ -13,7 +13,7 @@ $( function() {'use strict';
 			app.checklistCol.on('add', this.add, this);
 			app.checklistCol.on('reset', this.reset, this);
 		},
-		
+
 		render : function() {
 			app.logEvent('Render', this);
 			this.options.page.refresh(this.$el, this.$el.listview);
@@ -56,7 +56,7 @@ $( function() {'use strict';
 			app.logEvent('Destroy', this);
 			this.render();
 		},
-		
+
 		render : function() {
 			app.logEvent('Render', this);
 			/*
@@ -64,7 +64,7 @@ $( function() {'use strict';
 			 * If you are using non-native (jqm) select, then it will not be updated and you need to rebuild the whole
 			 * thing. JQM prepends the select DOM stuff so you have to be careful to throw away everything if you
 			 * want to start over.
-			 */			
+			 */
 			this.options.page.refresh(this.$el, this.$el.selectmenu);
 		},
 

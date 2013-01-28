@@ -1,9 +1,8 @@
-var app = app || {};
-( function() {'use strict';
+var app = app || {}; ( function() {'use strict';
 		app.Task = Backbone.Model.extend({
 			defaults : {
 				name : '',
-				description: '',
+				description : '',
 				checklist : [],
 				dueDate : null,
 				doneDate : null,
