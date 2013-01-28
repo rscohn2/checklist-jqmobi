@@ -17,14 +17,17 @@
 				z-index: 999;
 			}
 		</style>
-		<link rel='stylesheet' type='text/css' href='css/jq.ui.frosty.css' />
-		<link rel="stylesheet" type="text/css" href="css/icons.css">
+		<link rel='stylesheet' type='text/css' href='libs/jqmobi/examples/themes/jq.ui.css' />
+		<link rel="stylesheet" type="text/css" href="libs/jqmobi/examples/styles/icons.css">
+		<link rel="stylesheet" type="text/css" href="libs/jqmobi/plugins/css/jq.selectBox.css">
+
 
 		<script src="http://debug.appmobi.com/target/target-script-min.js#2cf72211-e2f6-40d2-8448-d9f161e6c9e6"></script>
 		<script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/appmobi.js"></script>
 		<script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/xhr.js"></script>
 		<script type="text/javascript" charset="utf-8" src="libs/jqmobi/jq.mobi.js"></script>
 		<script type="text/javascript" charset="utf-8" src="libs/jqmobi/ui/jq.ui.js"></script>
+		<script type="text/javascript" charset="utf-8" src="libs/jqmobi/plugins/jq.selectBox.js"</script>
 		<script type="text/javascript" charset="utf-8" src="libs/xpromo.js"></script>
 		<script type="text/javascript">
 			/* This function runs once the page is loaded, but appMobi is not yet active */
@@ -63,6 +66,8 @@
 						<a id='newTaskButton' href='#taskFormPage' class='button icon add' style='float:right'>New</a>
 					</header>
 					<ul id='tasklist'></ul>
+					<label for='taskChecklistSelect'>Select checklists</label>
+					<span><select id='taskChecklistSelect' name='taskChecklistSelect' multiple></select></span>
 				</div>
 				<div id='taskFormPage' title='Edit Task' class='panel'>
 					<header>
@@ -79,6 +84,9 @@
 						<textarea cols="40" rows="8" name='taskDescription' id='taskDescription' class='jq-ui-forms'
                             placeholder='Description'></textarea>
 					</div>
+					<label for='taskFormChecklistSelect'>Checklist</label>
+					<select id='taskFormChecklistSelect' name='taskFormChecklistSelect' multiple data-native-menu='false'></select>
+					<a id='deleteTaskButton' href='#taskPage' class='button'>Delete</a>
 
 				</div>
 				<div id='checklistPage' title='Checklists' class='panel' scrolling='yes'>
@@ -104,6 +112,7 @@
 						<label for='checklistDescription'> Description </label>
 						<textarea cols="40" rows="8" name='checklistDescription' id='checklistDescription'
                             class='jq-ui-forms' placeholder='Description'></textarea>
+						<a id='deleteChecklistButton' href='#checklistPage' class='button'>Delete</a>
 					</div>
 				</div>
 				<div id='settingsPage' title='Settings' class='panel' scrolling='yes'>
